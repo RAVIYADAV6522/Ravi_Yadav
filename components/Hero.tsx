@@ -99,10 +99,12 @@ export function Hero({ hero, siteConfig }: HeroProps) {
               wave="👋"
             />
           </motion.h1>
-          {/* Only the greeting types; the summary glides in (much faster to read). */}
+          {/* Only the greeting types; the summary glides in (much faster to read).
+              It stays visible in the server HTML (no fade) because it is the page's
+              largest text on phones; hiding it until JS loads delayed LCP by ~3 s. */}
           <motion.p
             variants={{
-              hidden: { opacity: 0, y: 16 },
+              hidden: { opacity: 1, y: 16 },
               visible: {
                 opacity: 1,
                 y: 0,
