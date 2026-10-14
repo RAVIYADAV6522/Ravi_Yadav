@@ -23,12 +23,12 @@ export async function copyText(text: string, message = "Copied to clipboard") {
  * Opens the in-page résumé preview. Falls back to the normal link (new tab)
  * on phones, browsers without a PDF viewer, or ctrl/cmd/middle-clicks.
  */
-export function openResume(e?: React.MouseEvent) {
+export function openResume(e?: React.MouseEvent, resumeId?: string) {
   if (e && (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1)) return;
   const pdfOk = "pdfViewerEnabled" in navigator ? navigator.pdfViewerEnabled : true;
   if (!pdfOk || window.innerWidth < 640) return;
   e?.preventDefault();
-  window.dispatchEvent(new CustomEvent(EVENTS.resume));
+  window.dispatchEvent(new CustomEvent<string | undefined>(EVENTS.resume, { detail: resumeId }));
 }
 
 export function resumeHref(path: string, cacheKey?: string) {

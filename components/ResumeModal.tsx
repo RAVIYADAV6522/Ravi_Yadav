@@ -10,10 +10,17 @@ import { EVENTS, resumeHref } from "@/lib/events";
 export function ResumeModal({ siteConfig }: { siteConfig: SiteConfig }) {
   const [open, setOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const href = resumeHref(siteConfig.resumePath, siteConfig.resumeCacheKey);
+  const { resumes } = siteConfig;
+  const [activeId, setActiveId] = useState(resumes[0].id);
+  const active = resumes.find((r) => r.id === activeId) ?? resumes[0];
+  const href = resumeHref(active.path, siteConfig.resumeCacheKey);
 
   useEffect(() => {
-    const onOpen = () => setOpen(true);
+    const onOpen = (e: Event) => {
+      const id = (e as CustomEvent<string | undefined>).detail;
+      if (id) setActiveId(id);
+      setOpen(true);
+    };
     window.addEventListener(EVENTS.resume, onOpen);
     return () => window.removeEventListener(EVENTS.resume, onOpen);
   }, []);
@@ -56,9 +63,27 @@ export function ResumeModal({ siteConfig }: { siteConfig: SiteConfig }) {
             className="relative flex h-[min(88vh,1000px)] w-full max-w-4xl flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900"
           >
             <div className="flex items-center justify-between gap-3 border-b border-slate-200/80 px-4 py-3 dark:border-slate-700">
-              <p className="font-heading text-base font-semibold text-slate-900 dark:text-white">
-                Résumé · {siteConfig.name}
-              </p>
+              <div className="flex items-center gap-1 rounded-full bg-slate-100 p-1 dark:bg-slate-800">
+                {resumes.map((r) => (
+                  <button
+                    key={r.id}
+                    type="button"
+                    onClick={() => {
+                      if (r.id === active.id) return;
+                      setLoaded(false);
+                      setActiveId(r.id);
+                    }}
+                    aria-pressed={r.id === active.id}
+                    className={`rounded-full px-3.5 py-1 text-xs font-semibold transition ${
+                      r.id === active.id
+                        ? "bg-white text-slate-900 shadow-sm dark:bg-slate-600 dark:text-white"
+                        : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+                    }`}
+                  >
+                    {r.label} résumé
+                  </button>
+                ))}
+              </div>
               <div className="flex items-center gap-2">
                 <a
                   href={href}
@@ -92,6 +117,7 @@ export function ResumeModal({ siteConfig }: { siteConfig: SiteConfig }) {
                 </div>
               )}
               <iframe
+                key={href}
                 src={`${href}#view=FitH&toolbar=0`}
                 title={`${siteConfig.name} résumé`}
                 onLoad={() => setLoaded(true)}

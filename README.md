@@ -33,7 +33,7 @@ Almost all copy, links, and lists live in **`data/portfolio.ts`**:
 
 **Assets:**
 
-- **`public/RaviYadav_Resume.pdf`** — resume opened from the Hero “resume” button
+- **`public/RaviYadav_SDE_Resume.pdf`** and **`public/RaviYadav_AIML_Resume.pdf`** — résumés opened from the Hero “sde resume” / “ai/ml resume” buttons (listed in `siteConfig.resumes`)
 - **`public/profile-photo.jpg`** — Hero profile photo (or change `siteConfig.profileImage` in `data/portfolio.ts`). If the file is missing, the site falls back to `public/avatar.svg`. Use a square image (about 400×400px or larger) for best results.
 
 ## Site URL

@@ -1,3 +1,5 @@
+export type Resume = { id: string; label: string; path: string };
+
 export const siteConfig = {
   name: "Ravi Yadav",
   metaTitle: "Ravi Yadav | AI/ML Researcher · IEEE APPEEC 2026 Co-Author",
@@ -6,10 +8,13 @@ export const siteConfig = {
   /** Production URL (no trailing slash) — used for canonical URL, sitemap, robots and share previews. */
   siteUrl: "https://raviyadav6522.vercel.app",
   email: "yadavr74839@gmail.com",
-  /** File must live in `public/` with this exact name. Commit + push so Vercel serves it. */
-  resumePath: "/RaviYadav_Resume.pdf",
-  /** Bump this every time you replace the PDF (same filename) so the link changes and caches invalidate. */
-  resumeCacheKey: "6",
+  /** Résumé PDFs in `public/` (exact filenames). The first one is the default. Commit + push so Vercel serves them. */
+  resumes: [
+    { id: "sde", label: "SDE", path: "/RaviYadav_SDE_Resume.pdf" },
+    { id: "aiml", label: "AI/ML", path: "/RaviYadav_AIML_Resume.pdf" },
+  ] as Resume[],
+  /** Bump this every time you replace a PDF (same filename) so the link changes and caches invalidate. */
+  resumeCacheKey: "7",
   /** Photo in `public/` — e.g. `/profile.jpeg` or `/profile.png` (square, ≥256×256 recommended). */
   profileImage: "/profile-photo.jpg",
   social: {

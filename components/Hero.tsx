@@ -11,7 +11,7 @@ import {
 import Image from "next/image";
 import { useRef, useState } from "react";
 import type { HeroContent, SiteConfig } from "@/data/portfolio";
-import { openResume } from "@/lib/events";
+import { openResume, resumeHref } from "@/lib/events";
 import { springSnappy } from "@/lib/motion";
 import { Magnetic } from "@/components/Magnetic";
 import { TypewriterText } from "@/components/TypewriterText";
@@ -114,24 +114,22 @@ export function Hero({ hero, siteConfig }: HeroProps) {
             transition={{ duration: 0.5 }}
             className="mt-8 flex flex-wrap justify-center gap-3 sm:justify-start"
           >
-            <Magnetic>
+            {siteConfig.resumes.map((r) => (
+            <Magnetic key={r.id}>
             <motion.a
-              href={
-                siteConfig.resumeCacheKey
-                  ? `${siteConfig.resumePath}?v=${siteConfig.resumeCacheKey}`
-                  : siteConfig.resumePath
-              }
+              href={resumeHref(r.path, siteConfig.resumeCacheKey)}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => openResume(e)}
+              onClick={(e) => openResume(e, r.id)}
               className={`${ctaMotion} bg-accent-mint`}
               whileHover={{ scale: 1.06, y: -2 }}
               whileTap={{ scale: 0.96 }}
               transition={springSnappy}
             >
-              resume
+              {r.label} resume
             </motion.a>
             </Magnetic>
+            ))}
             <Magnetic>
             <motion.a
               href="#projects"

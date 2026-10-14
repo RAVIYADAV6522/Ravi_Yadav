@@ -76,17 +76,18 @@ export function CommandPalette({ siteConfig }: { siteConfig: SiteConfig }) {
         icon: <Copy className="h-4 w-4" />,
         run: () => copyText(siteConfig.email, "Email copied"),
       },
-      {
-        id: "resume",
-        label: "View résumé",
-        group: "Actions",
-        keywords: "cv resume pdf",
+      ...siteConfig.resumes.map((r) => ({
+        id: `resume-${r.id}`,
+        label: `View ${r.label} résumé`,
+        group: "Actions" as const,
+        keywords: `cv resume pdf ${r.label}`,
         icon: <FileText className="h-4 w-4" />,
         run: () => {
-          if (window.innerWidth >= 640) window.dispatchEvent(new CustomEvent(EVENTS.resume));
-          else ext(resumeHref(siteConfig.resumePath, siteConfig.resumeCacheKey))();
+          if (window.innerWidth >= 640) {
+            window.dispatchEvent(new CustomEvent(EVENTS.resume, { detail: r.id }));
+          } else ext(resumeHref(r.path, siteConfig.resumeCacheKey))();
         },
-      },
+      })),
       {
         id: "theme",
         label: "Toggle dark / light mode",
