@@ -28,12 +28,12 @@ export const hero = {
 
 export const about = {
   introParagraphs: [
-    "I build intelligent systems around one question: how do we make them work reliably in the real world, not just on a benchmark?",
-    "My research focuses on deep learning for energy and physical systems, where models must respect the laws of the system instead of just fitting patterns in data. I'm second author on a physics-informed load forecasting paper presented at IEEE APPEEC 2026 in Singapore, part of my ongoing work on power-grid forecasting and resilience.",
-    "Beyond research, I love system design: how software is built from the ground up, from APIs and databases to architecture that stays fast and reliable as it scales. Competitive programming is where I sharpen my problem-solving; I enjoy the challenge of turning a hard problem into a clean, efficient solution.",
+    "I build intelligent systems around one question: how do we make them **work reliably in the real world**, not just on a benchmark?",
+    "My research focuses on **deep learning for energy and physical systems**, where models must respect the laws of the system instead of just fitting patterns in data. I'm **second author** on a physics-informed load forecasting paper presented at **IEEE APPEEC 2026** in Singapore, part of my ongoing work on power-grid forecasting and resilience.",
+    "Beyond research, I love **system design**: how software is built from the ground up, from APIs and databases to architecture that stays fast and reliable as it scales. **Competitive programming** is where I sharpen my problem-solving; I enjoy the challenge of turning a hard problem into a clean, efficient solution.",
   ],
   closingParagraphs: [
-    "Long term, I want to work at the intersection of machine learning, physical systems and infrastructure, building software that holds up in the real world. If you're working on something in that space, I'd love to talk.",
+    "Long term, I want to work at the intersection of **machine learning, physical systems and infrastructure**, building software that holds up in the real world. If you're working on something in that space, I'd love to talk.",
   ],
 };
 
@@ -54,9 +54,9 @@ export const workExperience: WorkEntry[] = [
     location: "Noida, Uttar Pradesh, India · Remote",
     logo: "AC",
     bullets: [
-      "Resolved 20+ UI/UX and responsiveness issues in a React.js and Tailwind CSS admin dashboard, so it behaves consistently on desktop, tablet and mobile.",
-      "Cut initial dashboard load time by ~50% by adding server-side pagination to a list of 500+ users, fetching one page at a time instead of every record at once.",
-      "Developed a RESTful API with NestJS, TypeScript and MongoDB supporting 3 country-specific configurations, so each region serves its own footer content without frontend code changes.",
+      "Resolved **20+ UI/UX and responsiveness issues** in a **React.js and Tailwind CSS** admin dashboard, so it behaves consistently on desktop, tablet and mobile.",
+      "Cut initial dashboard load time by **~50%** by adding **server-side pagination** to a list of **500+ users**, fetching one page at a time instead of every record at once.",
+      "Developed a **RESTful API** with **NestJS, TypeScript and MongoDB** supporting **3 country-specific configurations**, so each region serves its own footer content without frontend code changes.",
     ],
   },
 ];
@@ -313,9 +313,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/HackHeroic/Watt-IF",
     bullets: [
-      "KAT-PatchTST (Stage 1, 2nd author, IEEE APPEEC 2026): Developed a physics-informed load forecaster for U.S. balancing authorities (BAs) combining a channel-independent PatchTST backbone, TimeXer-style cross-attention, a Kirchhoff conservation regularizer and ReLoBRaLo dynamic loss balancing. Reached 3.65% demand MAPE across six BAs on the EIA-930 protocol, inside the published accuracy tier, with ~3.9M parameters (comparable in size to the 2.0–6.5M baselines).",
-      "Stage 2 (In Development): Extending the forecasting framework toward operational feasibility analysis over the BA interchange network to identify systemic bottlenecks and quantify node criticality from forecasted grid states.",
-      "Stage 3 (In Development): Developing a conditional grid partitioning policy to minimize allocation failures under forecasted operating conditions, motivated by ORNL’s reported $121B annual cost of major U.S. power outages in 2024.",
+      "KAT-PatchTST (Stage 1, 2nd author, IEEE APPEEC 2026): Developed a **physics-informed load forecaster** for U.S. balancing authorities (BAs) combining a channel-independent PatchTST backbone, TimeXer-style cross-attention, a **Kirchhoff conservation regularizer** and ReLoBRaLo dynamic loss balancing. Reached **3.65% demand MAPE** across six BAs on the EIA-930 protocol, inside the published accuracy tier, with **~3.9M parameters** (comparable in size to the 2.0–6.5M baselines).",
+      "Stage 2 (In Development): Extending the forecasting framework toward **operational feasibility analysis** over the BA interchange network to identify systemic bottlenecks and quantify **node criticality** from forecasted grid states.",
+      "Stage 3 (In Development): Developing a **conditional grid partitioning policy** to minimize allocation failures under forecasted operating conditions, motivated by ORNL’s reported **$121B annual cost** of major U.S. power outages in 2024.",
     ],
   },
   
@@ -333,9 +333,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/amathziah/malaria-detection",
     bullets: [
-      "Manual microscopy of blood smears is slow and error-prone; our team reproduced an EfficientNet ensemble (Marques et al., 2022) that automatically detects malaria-infected red blood cells in thin blood smear images.",
-      "Trained 10 EfficientNet-B0 models with 10-fold cross-validation on 27,558 NIH cell images, one RTX 4090 per fold in parallel (~11 min per fold vs. 4 h 46 min in the paper), with 32 fidelity tests against its code.",
-      "Reached 97.62% ensemble accuracy and 99.73% ROC-AUC, within 1 pp of the paper, and found 2 errors in the paper; I built the results presentation and verified the reported metrics against experiment outputs.",
+      "Manual microscopy of blood smears is slow and error-prone; our team reproduced an **EfficientNet ensemble** (Marques et al., 2022) that automatically detects malaria-infected red blood cells in thin blood smear images.",
+      "Trained **10 EfficientNet-B0 models** with 10-fold cross-validation on **27,558 NIH cell images**, one RTX 4090 per fold in parallel (**~11 min per fold** vs. 4 h 46 min in the paper), with **32 fidelity tests** against its code.",
+      "Reached **97.62% ensemble accuracy** and **99.73% ROC-AUC**, **within 1 pp of the paper**, and **found 2 errors** in the paper; I built the results presentation and verified the reported metrics against experiment outputs.",
     ],
   },
   {
@@ -354,9 +354,9 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/RAVIYADAV6522/document-search-service",
     demoUrl: "https://document-search-service-0y08.onrender.com",
     bullets: [
-      "Keyword search over a growing document library must stay relevant and fast, but ranking every document in application code slows down as data grows and misses word variants (e.g. budgets vs. budget).",
-      "Built and deployed a search engine over 10,000+ documents using PostgreSQL full-text search (tsvector, GIN index, ts_rank) and a cosine-similarity ranker built from scratch, compared live side by side in the UI.",
-      "Made lookups ~35–45× faster (measured with EXPLAIN ANALYZE) using composite indexes, relational division and anti-joins, with search under 20 ms. Backed by 50 automated tests, including integration tests on real PostgreSQL.",
+      "Keyword search over a growing document library must stay relevant and fast, but ranking every document in application code **slows down as data grows** and misses word variants (e.g. budgets vs. budget).",
+      "Built and deployed a search engine over **10,000+ documents** using **PostgreSQL full-text search** (tsvector, GIN index, ts_rank) and a **cosine-similarity ranker built from scratch**, compared live side by side in the UI.",
+      "Made lookups **~35–45× faster** (measured with EXPLAIN ANALYZE) using composite indexes, relational division and anti-joins, with search **under 20 ms**. Backed by **50 automated tests**, including integration tests on real PostgreSQL.",
     ],
   },
   {
@@ -378,9 +378,9 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/RAVIYADAV6522/PrepLens",
     demoUrl: "https://preplens-umber.vercel.app/",
     bullets: [
-      "When a company visited campus, students across a college of ~2,000 spent hours on unstructured prep, studying random topics without knowing what that company actually asks in each round. Built and deployed PrepLens (React, Node/Express, MongoDB, Vercel + Render) so seniors can share round-by-round interview experiences, aiming to save 10+ hours of random prep per company.",
-      "Designed a pre-publication moderation workflow with an admin review queue: every submission is approved, or rejected with feedback to the author, and each decision is audited by reviewer. Added company-name deduplication (alias matching plus admin merge/reject) to keep search filters clean.",
-      "Implemented role-based access with separate student and admin sign-in over Google OAuth, restricted to the college domain plus an admin allowlist. Server-side hashed sessions and API-level anonymity protect author identity, backed by 117 automated tests covering auth, moderation and data integrity.",
+      "When a company visited campus, students across a college of **~2,000** spent hours on **unstructured prep**, studying random topics without knowing what that company actually asks in each round. Built and deployed PrepLens (React, Node/Express, MongoDB, Vercel + Render) so seniors can share **round-by-round interview experiences**, aiming to save **10+ hours** of random prep per company.",
+      "Designed a **pre-publication moderation workflow** with an admin review queue: every submission is approved, or rejected with feedback to the author, and each decision is **audited by reviewer**. Added **company-name deduplication** (alias matching plus admin merge/reject) to keep search filters clean.",
+      "Implemented **role-based access** with separate student and admin sign-in over Google OAuth, restricted to the college domain plus an admin allowlist. Server-side hashed sessions and API-level anonymity protect author identity, backed by **117 automated tests** covering auth, moderation and data integrity.",
     ],
   },
   {
@@ -400,9 +400,9 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/RAVIYADAV6522/forestlens",
     demoUrl: "https://forestlens-cujmcn43y5s8ev8vguauez.streamlit.app/",
     bullets: [
-      "Carbon programs need per-tree counts and canopy area from high-resolution satellite imagery, but pretrained detectors return confident but wrong numbers when imagery differs from the resolution they were trained on.",
-      "Built a Streamlit geospatial app with tiled DeepForest detection, IoU duplicate suppression, SAM 2 crown masks and GSD-based area from Rasterio GeoTIFFs, backed by 55 automated tests and CSV/GeoJSON exports.",
-      "Found DeepForest fails at native 0.305 m/px (5.8 trees/ha, 15 m crowns); resampling to its training scale gave 71 trees/ha with 5.2 m crowns (real: 4–8 m), and the app withholds numbers it cannot justify.",
+      "Carbon programs need per-tree counts and canopy area from high-resolution satellite imagery, but pretrained detectors return **confident but wrong numbers** when imagery differs from the resolution they were trained on.",
+      "Built a Streamlit geospatial app with **tiled DeepForest detection**, IoU duplicate suppression, **SAM 2 crown masks** and GSD-based area from Rasterio GeoTIFFs, backed by **55 automated tests** and CSV/GeoJSON exports.",
+      "Found DeepForest **fails at native 0.305 m/px** (5.8 trees/ha, 15 m crowns); resampling to its training scale gave **71 trees/ha** with **5.2 m crowns** (real: 4–8 m), and the app **withholds numbers it cannot justify**.",
     ],
   },
   {
@@ -420,9 +420,9 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/HackHeroic/optiforge",
     demoUrl: "https://optiforge.streamlit.app/",
     bullets: [
-      "Black–Scholes assumes constant volatility and log-normal returns, assumptions that break down in real markets during volatility spikes and at extreme strikes, leading to systematically mispriced options.",
-      "Trained 8 MLP and LSTM pricing models in TensorFlow on 420K synthetic and ~32K real AAPL options (2021–23), each with and without GARCH(1,1) volatility features, benchmarked against Black–Scholes pricing.",
-      "Learned the Black–Scholes pricing surface at R² 0.99998 and shipped a live Streamlit dashboard with heatmaps and sensitivity analysis comparing ML and analytical pricing side by side across all 8 model variants.",
+      "Black–Scholes assumes **constant volatility** and log-normal returns, assumptions that break down in real markets during volatility spikes and at extreme strikes, leading to **systematically mispriced options**.",
+      "Trained **8 MLP and LSTM pricing models** in TensorFlow on **420K synthetic** and **~32K real AAPL options** (2021–23), each with and without **GARCH(1,1)** volatility features, benchmarked against Black–Scholes pricing.",
+      "Learned the Black–Scholes pricing surface at **R² 0.99998** and shipped a **live Streamlit dashboard** with heatmaps and sensitivity analysis comparing ML and analytical pricing side by side across all 8 model variants.",
     ],
   },
 
@@ -444,9 +444,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/HackHeroic/file_organizer",
     bullets: [
-      "Connected low-level C system calls to a Next.js/Node full-stack app for file operations, natural-language commands, and cross-format semantic search (PDF, images, text).",
-      "Implemented AI-assisted auto-tagging and a multi-step autonomous organizer with explicit safety rules and user confirmation for risky actions.",
-      "Tuned the agent for predictable tool use and context limits so long-running organization tasks stay controllable in real directories.",
+      "Connected **low-level C system calls** to a Next.js/Node full-stack app for file operations, natural-language commands, and **cross-format semantic search** (PDF, images, text).",
+      "Implemented **AI-assisted auto-tagging** and a multi-step autonomous organizer with **explicit safety rules** and user confirmation for risky actions.",
+      "Tuned the agent for **predictable tool use** and context limits so long-running organization tasks stay controllable in real directories.",
     ],
   },
 
@@ -466,9 +466,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/HackHeroic/Snake_game_os",
     bullets: [
-      "Implemented a real-time terminal Snake game in C with custom string, math, screen, and input abstractions to stay close to the metal.",
-      "Built a 64KB virtual memory allocator (first-fit + coalescing) and non-blocking keyboard input for smooth frame-by-frame play.",
-      "Added multiple modes, obstacles, and persistent stats while keeping the binary footprint and runtime costs suitable for terminal constraints.",
+      "Implemented a **real-time terminal Snake game in C** with custom string, math, screen, and input abstractions to stay close to the metal.",
+      "Built a **64KB virtual memory allocator** (**first-fit + coalescing**) and **non-blocking keyboard input** for smooth frame-by-frame play.",
+      "Added multiple modes, obstacles, and **persistent stats** while keeping the binary footprint and runtime costs suitable for terminal constraints.",
     ],
   }
 

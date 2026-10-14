@@ -1,5 +1,6 @@
 "use client";
 
+import { Highlighted } from "@/components/Highlighted";
 import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 import {
   AnimatePresence,
@@ -248,7 +249,7 @@ export function Projects({ projects }: { projects: Project[] }) {
                       <ul className="mt-4 flex-1 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600 marker:text-slate-400 dark:text-slate-300 dark:marker:text-slate-500">
                         {project.bullets.map((line, bi) => (
                           <li key={bi} className="pl-0.5 text-pretty">
-                            {line}
+                            <Highlighted text={line} />
                           </li>
                         ))}
                       </ul>

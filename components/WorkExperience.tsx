@@ -1,5 +1,6 @@
 "use client";
 
+import { Highlighted } from "@/components/Highlighted";
 import { SectionLabel } from "@/components/SectionLabel";
 
 import { RevealText } from "@/components/RevealText";
@@ -76,7 +77,9 @@ export function WorkExperience({ workExperience }: { workExperience: WorkEntry[]
               </div>
               <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                 {job.bullets.map((b, bi) => (
-                  <li key={bi}>{b}</li>
+                  <li key={bi}>
+                    <Highlighted text={b} />
+                  </li>
                 ))}
               </ul>
             </motion.li>
