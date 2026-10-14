@@ -29,6 +29,13 @@ export const hero = {
   /** Primary intro (shown below the greeting) */
   summaryLine:
     "Building Intelligent, Scalable Systems | AI/ML Researcher | IEEE APPEEC 2026 Co-Author",
+  /** Status pill above the greeting — say which roles you want. */
+  availability: "Open to SDE and AI/ML roles",
+  /** Top wins shown as badges under the summary; each links to the Achievements section. */
+  badges: [
+    { place: "3rd", title: "IEEE PES Energy Shark Tank 2026" },
+    { place: "1st", title: "NST Startup Foundry 2026" },
+  ],
 };
 
 export const about = {

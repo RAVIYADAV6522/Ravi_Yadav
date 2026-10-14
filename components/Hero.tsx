@@ -8,6 +8,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import { Trophy } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import type { HeroContent, SiteConfig } from "@/data/portfolio";
@@ -80,7 +81,7 @@ export function Hero({ hero, siteConfig }: HeroProps) {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:animate-none" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               </span>
-              Open to opportunities
+              {hero.availability}
             </span>
           </motion.div>
           <motion.h1
@@ -109,6 +110,25 @@ export function Hero({ hero, siteConfig }: HeroProps) {
           >
             {hero.summaryLine}
           </motion.p>
+          <motion.ul
+            variants={child}
+            transition={{ duration: 0.5 }}
+            className="mt-4 flex flex-wrap justify-center gap-2 sm:justify-start"
+            aria-label="Awards"
+          >
+            {hero.badges.map((b) => (
+              <li key={b.title}>
+                <a
+                  href="#achievements"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-amber-300/70 bg-amber-50/80 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur-md transition hover:border-amber-400 hover:shadow-md dark:border-amber-400/30 dark:bg-amber-400/10 dark:text-slate-200"
+                >
+                  <Trophy className="h-3.5 w-3.5 text-amber-500 dark:text-amber-300" aria-hidden />
+                  <span className="font-bold text-amber-700 dark:text-amber-300">{b.place}</span>
+                  {b.title}
+                </a>
+              </li>
+            ))}
+          </motion.ul>
           <motion.div
             variants={child}
             transition={{ duration: 0.5 }}
