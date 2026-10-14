@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Inter, JetBrains_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import { PageLoader } from "@/components/PageLoader";
@@ -93,6 +94,7 @@ export default function RootLayout({
         <ThemeProvider>
           <PageLoader>{children}</PageLoader>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

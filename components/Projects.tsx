@@ -30,7 +30,8 @@ import {
 } from "@/lib/motion";
 
 /** Featured card + 4 more = two full rows of the bento grid. */
-const INITIAL_PROJECT_COUNT = 5;
+/** Projects shown before "More projects"; the rest (oldest, weakest) stay collapsed. */
+const INITIAL_PROJECT_COUNT = 6;
 
 type Filter = "all" | ProjectCategory;
 
@@ -293,7 +294,7 @@ export function Projects({ projects }: { projects: Project[] }) {
                 </>
               ) : (
                 <>
-                  See more
+                  More projects ({filtered.length - INITIAL_PROJECT_COUNT})
                   <ChevronDown className="h-4 w-4" strokeWidth={2.5} aria-hidden />
                 </>
               )}
