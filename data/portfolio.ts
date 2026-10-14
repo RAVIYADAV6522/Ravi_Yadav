@@ -14,7 +14,7 @@ export const siteConfig = {
     { id: "aiml", label: "AI/ML", path: "/RaviYadav_AIML_Resume.pdf" },
   ] as Resume[],
   /** Bump this every time you replace a PDF (same filename) so the link changes and caches invalidate. */
-  resumeCacheKey: "7",
+  resumeCacheKey: "8",
   /** Photo in `public/` — e.g. `/profile.jpeg` or `/profile.png` (square, ≥256×256 recommended). */
   profileImage: "/profile-photo.jpg",
   social: {
