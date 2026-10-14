@@ -157,8 +157,8 @@ export function Activity({ siteConfig }: { siteConfig: SiteConfig }) {
               </a>
             </div>
             <LiveImage
-              srcLight={`https://leetcard.jacoblin.cool/${lc}?theme=light&font=Inter&ext=heatmap&border=0&radius=12`}
-              srcDark={`https://leetcard.jacoblin.cool/${lc}?theme=dark&font=Inter&ext=heatmap&border=0&radius=12`}
+              srcLight={`https://leetcard.jacoblin.cool/${lc}?theme=light&font=Inter&border=0&radius=12`}
+              srcDark={`https://leetcard.jacoblin.cool/${lc}?theme=dark&font=Inter&border=0&radius=12`}
               alt={`LeetCode stats for ${lc}`}
               fallbackHref={siteConfig.social.leetcode}
               fallbackLabel="See my LeetCode profile"
