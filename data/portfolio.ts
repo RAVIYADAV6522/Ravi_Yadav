@@ -29,6 +29,8 @@ export const hero = {
   /** Primary intro (shown below the greeting) */
   summaryLine:
     "Building Intelligent, Scalable Systems | AI/ML Researcher | IEEE APPEEC 2026 Co-Author",
+  /** Thought cloud shown above the profile photo on hover (tap on phones). */
+  avatarGreeting: "Hey, how was your day?",
   /** Status pill above the greeting — say which roles you want. */
   availability: "Open to SDE and AI/ML roles",
   /** Top wins shown as badges under the summary; each links to the Achievements section. */

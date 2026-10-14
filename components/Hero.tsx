@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AnimatePresence,
   motion,
   useMotionValue,
   useReducedMotion,
@@ -29,6 +30,7 @@ type HeroProps = { hero: HeroContent; siteConfig: SiteConfig };
 
 export function Hero({ hero, siteConfig }: HeroProps) {
   const [avatarSrc, setAvatarSrc] = useState(siteConfig.profileImage);
+  const [cloudOpen, setCloudOpen] = useState(false);
   const reduced = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -57,6 +59,7 @@ export function Hero({ hero, siteConfig }: HeroProps) {
   const onAvatarLeave = () => {
     tiltX.set(0);
     tiltY.set(0);
+    setCloudOpen(false);
   };
 
   return (
@@ -211,9 +214,38 @@ export function Hero({ hero, siteConfig }: HeroProps) {
             className="relative h-32 w-32 [perspective:800px] sm:h-40 sm:w-40"
             animate={reduced ? undefined : { y: [0, -8, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            onPointerEnter={(e) => e.pointerType === "mouse" && setCloudOpen(true)}
             onPointerMove={onAvatarMove}
             onPointerLeave={onAvatarLeave}
+            // Phones have no hover: a tap toggles the cloud instead.
+            onClick={() => setCloudOpen((o) => !o)}
           >
+            <AnimatePresence>
+              {cloudOpen && (
+                <div role="status" className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-5 -translate-x-1/2">
+                <motion.div
+                  className="relative [filter:drop-shadow(0_6px_14px_rgba(15,23,42,0.18))]"
+                  initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 6, scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                  style={{ transformOrigin: "50% 100%" }}
+                >
+                  {/* Cloud: a pill with two bumps on top, all one colour so they merge. */}
+                  <div className="relative">
+                    <span aria-hidden className="absolute -top-3 left-5 h-9 w-9 rounded-full bg-white dark:bg-slate-800" />
+                    <span aria-hidden className="absolute -top-5 left-1/2 h-12 w-12 -translate-x-1/3 rounded-full bg-white dark:bg-slate-800" />
+                    <p className="relative whitespace-nowrap rounded-full bg-white px-5 py-2.5 font-heading text-sm font-semibold text-slate-800 dark:bg-slate-800 dark:text-white">
+                      {hero.avatarGreeting}
+                    </p>
+                  </div>
+                  {/* Thought-bubble trail down to the photo. */}
+                  <span aria-hidden className="absolute -bottom-3 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-white dark:bg-slate-800" />
+                  <span aria-hidden className="absolute -bottom-[1.375rem] left-[calc(50%+6px)] h-2 w-2 rounded-full bg-white dark:bg-slate-800" />
+                </motion.div>
+                </div>
+              )}
+            </AnimatePresence>
             {/* soft glow halo */}
             <div
               aria-hidden
