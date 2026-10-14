@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ravi Yadav",
   metaTitle: "Ravi Yadav | AI/ML Researcher · IEEE APPEEC 2026 Co-Author",
   metaDescription:
-    "AI undergraduate (B.Tech '27) at Newton School of Technology building intelligent, scalable systems. Co-author of a physics-informed load forecasting paper at IEEE APPEEC 2026, Singapore.",
+    "AI/ML researcher building intelligent, scalable systems. Co-author of a physics-informed load forecasting paper at IEEE APPEEC 2026, Singapore.",
   /** Production URL (no trailing slash) — used for canonical URL, sitemap, robots and share previews. */
   siteUrl: "https://raviyadav6522.vercel.app",
   email: "yadavr74839@gmail.com",
@@ -28,12 +28,12 @@ export const hero = {
 
 export const about = {
   introParagraphs: [
-    "I'm an AI undergraduate (B.Tech, 2023–2027) and AI/ML researcher interested in a simple question: how do we build intelligent systems that work reliably in the real world, not just on a dataset?",
-    "My current research explores deep learning for energy and physical systems, where models need to respect the underlying laws of the system rather than simply fit patterns in data. I'm the second of five authors on a physics-informed load forecasting paper presented at IEEE APPEEC 2026 in Singapore, as part of my ongoing work on power-grid forecasting and optimization.",
-    "Beyond ML research, I enjoy understanding how systems are built from the ground up — from backend engineering and APIs to high-level design, system architecture, scalability, and reliability. I'm also deepening my foundations in NLP and computer vision, while competitive programming keeps my algorithmic and mathematical thinking sharp.",
+    "I build intelligent systems around one question: how do we make them work reliably in the real world, not just on a benchmark?",
+    "My research focuses on deep learning for energy and physical systems, where models must respect the laws of the system instead of just fitting patterns in data. I'm second author on a physics-informed load forecasting paper presented at IEEE APPEEC 2026 in Singapore, part of my ongoing work on power-grid forecasting and resilience.",
+    "Beyond research, I love system design: how software is built from the ground up, from APIs and databases to architecture that stays fast and reliable as it scales. Competitive programming is where I sharpen my problem-solving; I enjoy the challenge of turning a hard problem into a clean, efficient solution.",
   ],
   closingParagraphs: [
-    "Long term, I'm interested in graduate research at the intersection of machine learning, physical systems, and infrastructure, while continuing to build scalable software along the way. Always happy to connect over research ideas, interesting systems, or opportunities to build something meaningful.",
+    "Long term, I want to work at the intersection of machine learning, physical systems and infrastructure, building software that holds up in the real world. If you're working on something in that space, I'd love to talk.",
   ],
 };
 
