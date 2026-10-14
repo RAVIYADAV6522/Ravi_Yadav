@@ -41,6 +41,8 @@ export function ProjectVisual({ kind }: { kind: ProjectVisualKind }) {
         {kind === "snake" && <SnakeScene />}
         {kind === "search" && <SearchScene />}
         {kind === "forest" && <ForestScene />}
+        {kind === "docsearch" && <DocSearchScene />}
+        {kind === "cells" && <CellsScene />}
       </svg>
     </div>
   );
@@ -245,6 +247,77 @@ function ForestScene() {
       <g transform="translate(206 128)">
         <rect width="94" height="22" rx="11" className="pv-card" />
         <text x="47" y="14.5" textAnchor="middle" className="pv-label">71 trees/ha</text>
+      </g>
+    </g>
+  );
+}
+
+/* ---------- Document Search: one query, two rankers side by side ---------- */
+const RANKERS = [
+  { x: 18, name: "Postgres FTS", widths: [92, 74, 60] },
+  { x: 166, name: "Cosine", widths: [84, 90, 52] },
+];
+function DocSearchScene() {
+  return (
+    <g>
+      <rect x="18" y="12" width="284" height="26" rx="13" className="pv-card" />
+      <circle cx="35" cy="24" r="5" className="pv-search-icon" />
+      <line x1="39" y1="28" x2="43" y2="32" className="pv-search-icon" />
+      <text x="51" y="28" className="pv-label">budgets</text>
+      <rect x="88" y="18" width="1.5" height="12" className="pv-caret" />
+      <g transform="translate(244 17)">
+        <rect width="50" height="15" rx="7.5" className="pv-price" />
+        <text x="25" y="10.5" textAnchor="middle" className="pv-tag-text">18 ms</text>
+      </g>
+      {RANKERS.map((col) => (
+        <g key={col.name}>
+          <text x={col.x + 4} y="56" className="pv-label">{col.name}</text>
+          {col.widths.map((w, i) => (
+            <g key={i} className="pv-seq" style={{ animationDelay: `${0.5 + i * 0.5}s` }}>
+              <rect x={col.x} y={64 + i * 30} width="136" height="24" rx="6" className="pv-card" />
+              <text x={col.x + 9} y={79 + i * 30} className="pv-mono">{i + 1}</text>
+              <rect x={col.x + 22} y={72 + i * 30} width={w} height="8" rx="4" className="pv-line pv-line-soft" />
+            </g>
+          ))}
+        </g>
+      ))}
+    </g>
+  );
+}
+
+/* ---------- Malaria: scan a smear and flag the infected cells ---------- */
+const CELLS: [number, number, number, boolean][] = [
+  [48, 50, 17, false], [96, 100, 19, true], [44, 118, 15, false], [140, 44, 16, false],
+  [178, 104, 18, false], [222, 56, 17, true], [266, 106, 16, false], [284, 46, 13, false], [134, 128, 12, false],
+];
+function CellsScene() {
+  return (
+    <g>
+      <rect x="14" y="14" width="292" height="132" rx="10" className="pv-smear" />
+      {CELLS.map(([x, y, r, infected], i) => (
+        <g key={i}>
+          <circle cx={x} cy={y} r={r} className="pv-cell" />
+          <circle cx={x} cy={y} r={r * 0.45} className="pv-cell-core" />
+          {infected && (
+            <>
+              <circle cx={x + r * 0.3} cy={y - r * 0.2} r="3" className="pv-parasite" />
+              <rect
+                x={x - r - 3}
+                y={y - r - 3}
+                width={(r + 3) * 2}
+                height={(r + 3) * 2}
+                rx="3"
+                className="pv-bbox pv-bbox-alert"
+                style={{ animationDelay: `${(x / 300) * 2.4}s` }}
+              />
+            </>
+          )}
+        </g>
+      ))}
+      <rect x="14" y="14" width="3" height="132" className="pv-scan" />
+      <g transform="translate(196 128)">
+        <rect width="104" height="22" rx="11" className="pv-card" />
+        <text x="52" y="14.5" textAnchor="middle" className="pv-label">97.62% accuracy</text>
       </g>
     </g>
   );

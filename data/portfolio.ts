@@ -54,9 +54,9 @@ export const workExperience: WorkEntry[] = [
     location: "Noida, Uttar Pradesh, India · Remote",
     logo: "AC",
     bullets: [
-      "Improved a React.js and Tailwind CSS admin dashboard by resolving 20+ UI/UX and responsiveness issues, delivering a more consistent cross-device experience.",
-      "Developed a RESTful API supporting 3 country-specific configurations using NestJS, TypeScript, and MongoDB, enabling dynamic footer content.",
-      "Optimized admin dashboard loading for 500+ users by implementing pagination, reducing initial load time by ~50% while limiting each request to 5 users.",
+      "Resolved 20+ UI/UX and responsiveness issues in a React.js and Tailwind CSS admin dashboard, so it behaves consistently on desktop, tablet and mobile.",
+      "Cut initial dashboard load time by ~50% by adding server-side pagination to a list of 500+ users, fetching one page at a time instead of every record at once.",
+      "Developed a RESTful API with NestJS, TypeScript and MongoDB supporting 3 country-specific configurations, so each region serves its own footer content without frontend code changes.",
     ],
   },
 ];
@@ -270,7 +270,9 @@ export type ProjectVisualKind =
   | "files"
   | "snake"
   | "search"
-  | "forest";
+  | "forest"
+  | "docsearch"
+  | "cells";
 
 export const projectCategories: { id: "all" | ProjectCategory; label: string }[] = [
   { id: "all", label: "All" },
@@ -311,12 +313,52 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/HackHeroic/Watt-IF",
     bullets: [
-      "KAT-PatchTST (Stage 1, 2nd author): Developed a physics-informed BA-aggregate load forecasting framework combining Channel-Independent PatchTST, TimeXer cross-attention, Kirchhoff conservation regularization, and ReLoBRaLo dynamic loss balancing. Achieved 3.55% demand MAPE across six BAs on the EIA930 protocol using a 168-hour context window (30% shorter than the published 240-hour baseline) and approximately 0.6M parameters, making the model 3–10× leaner than comparators.",
+      "KAT-PatchTST (Stage 1, 2nd author, IEEE APPEEC 2026): Developed a physics-informed load forecaster for U.S. balancing authorities (BAs) combining a channel-independent PatchTST backbone, TimeXer-style cross-attention, a Kirchhoff conservation regularizer and ReLoBRaLo dynamic loss balancing. Reached 3.65% demand MAPE across six BAs on the EIA-930 protocol, inside the published accuracy tier, with ~3.9M parameters (comparable in size to the 2.0–6.5M baselines).",
       "Stage 2 (In Development): Extending the forecasting framework toward operational feasibility analysis over the BA interchange network to identify systemic bottlenecks and quantify node criticality from forecasted grid states.",
       "Stage 3 (In Development): Developing a conditional grid partitioning policy to minimize allocation failures under forecasted operating conditions, motivated by ORNL’s reported $121B annual cost of major U.S. power outages in 2024.",
     ],
   },
   
+  {
+    title: "Automated Malaria Cell Detection",
+    categories: ["ai"],
+    visual: "cells",
+    tags: [
+      "Python",
+      "TensorFlow",
+      "EfficientNet",
+      "Computer Vision",
+      "Medical Imaging",
+      "Paper Reproduction",
+    ],
+    githubUrl: "https://github.com/amathziah/malaria-detection",
+    bullets: [
+      "Manual microscopy of blood smears is slow and error-prone; our team reproduced an EfficientNet ensemble (Marques et al., 2022) that automatically detects malaria-infected red blood cells in thin blood smear images.",
+      "Trained 10 EfficientNet-B0 models with 10-fold cross-validation on 27,558 NIH cell images, one RTX 4090 per fold in parallel (~11 min per fold vs. 4 h 46 min in the paper), with 32 fidelity tests against its code.",
+      "Reached 97.62% ensemble accuracy and 99.73% ROC-AUC, within 1 pp of the paper, and found 2 errors in the paper; I built the results presentation and verified the reported metrics against experiment outputs.",
+    ],
+  },
+  {
+    title: "Document Search Engine",
+    categories: ["systems", "fullstack"],
+    visual: "docsearch",
+    tags: [
+      "PostgreSQL",
+      "Full-Text Search",
+      "SQL",
+      "Node.js",
+      "JavaScript",
+      "Neon",
+      "Render",
+    ],
+    githubUrl: "https://github.com/RAVIYADAV6522/document-search-service",
+    demoUrl: "https://document-search-service-0y08.onrender.com",
+    bullets: [
+      "Keyword search over a growing document library must stay relevant and fast, but ranking every document in application code slows down as data grows and misses word variants (e.g. budgets vs. budget).",
+      "Built and deployed a search engine over 10,000+ documents using PostgreSQL full-text search (tsvector, GIN index, ts_rank) and a cosine-similarity ranker built from scratch, compared live side by side in the UI.",
+      "Made lookups ~35–45× faster (measured with EXPLAIN ANALYZE) using composite indexes, relational division and anti-joins, with search under 20 ms. Backed by 50 automated tests, including integration tests on real PostgreSQL.",
+    ],
+  },
   {
     title: "PrepLens – Placement Prep Platform",
     categories: ["fullstack"],
@@ -336,7 +378,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/RAVIYADAV6522/PrepLens",
     demoUrl: "https://preplens-umber.vercel.app/",
     bullets: [
-      "Built and deployed PrepLens, a full-stack placement-prep platform (React, Node/Express, MongoDB, Vercel + Render) used by ~2,000 students, saving each an estimated 10+ hours of interview preparation. Owned it end-to-end, from database design and REST API to UI, search and a feedback-driven redesign.",
+      "When a company visited campus, students across a college of ~2,000 spent hours on unstructured prep, studying random topics without knowing what that company actually asks in each round. Built and deployed PrepLens (React, Node/Express, MongoDB, Vercel + Render) so seniors can share round-by-round interview experiences, aiming to save 10+ hours of random prep per company.",
       "Designed a pre-publication moderation workflow with an admin review queue: every submission is approved, or rejected with feedback to the author, and each decision is audited by reviewer. Added company-name deduplication (alias matching plus admin merge/reject) to keep search filters clean.",
       "Implemented role-based access with separate student and admin sign-in over Google OAuth, restricted to the college domain plus an admin allowlist. Server-side hashed sessions and API-level anonymity protect author identity, backed by 117 automated tests covering auth, moderation and data integrity.",
     ],
@@ -350,6 +392,7 @@ export const projects: Project[] = [
       "PyTorch",
       "DeepForest",
       "Rasterio",
+      "SAM 2",
       "Streamlit",
       "Computer Vision",
       "Geospatial ML",
@@ -357,28 +400,29 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/RAVIYADAV6522/forestlens",
     demoUrl: "https://forestlens-cujmcn43y5s8ev8vguauez.streamlit.app/",
     bullets: [
-      "Built and deployed a geospatial ML web application for individual tree crown detection and canopy area estimation from high-resolution satellite imagery using DeepForest, Rasterio, and Streamlit.",
-      "Diagnosed and fixed a hidden DeepForest tile-scale dependency that fragmented crowns across tile sizes, improving crown geometry consistency and pipeline reproducibility.",
-      "Investigated native-resolution detection failures through documented scale matching, reaching 71 trees/ha with 5.2 m crowns while explicitly reporting uncertainty and withholding unsupported measurements.",
+      "Carbon programs need per-tree counts and canopy area from high-resolution satellite imagery, but pretrained detectors return confident but wrong numbers when imagery differs from the resolution they were trained on.",
+      "Built a Streamlit geospatial app with tiled DeepForest detection, IoU duplicate suppression, SAM 2 crown masks and GSD-based area from Rasterio GeoTIFFs, backed by 55 automated tests and CSV/GeoJSON exports.",
+      "Found DeepForest fails at native 0.305 m/px (5.8 trees/ha, 15 m crowns); resampling to its training scale gave 71 trees/ha with 5.2 m crowns (real: 4–8 m), and the app withholds numbers it cannot justify.",
     ],
   },
   {
-    title: "Optiforge Neural Options Pricing",
+    title: "Optiforge – Neural Options Pricing",
     categories: ["ai"],
     visual: "options",
     tags: [
       "Python",
+      "TensorFlow",
       "LSTM",
       "GARCH",
+      "Streamlit",
       "Financial Modeling",
-      "Deep Learning",
     ],
     githubUrl: "https://github.com/HackHeroic/optiforge",
     demoUrl: "https://optiforge.streamlit.app/",
     bullets: [
-      "Built a neural options pricing stack with LSTM models benchmarked side-by-side against Black–Scholes for fair quantitative comparison.",
-      "Layered in GARCH-style volatility and analytical pricing so classical and learned estimators can be evaluated on the same surfaces.",
-      "Packaged a Streamlit demo for interactive exploration and faster iteration on model behavior and error profiles.",
+      "Black–Scholes assumes constant volatility and log-normal returns, assumptions that break down in real markets during volatility spikes and at extreme strikes, leading to systematically mispriced options.",
+      "Trained 8 MLP and LSTM pricing models in TensorFlow on 420K synthetic and ~32K real AAPL options (2021–23), each with and without GARCH(1,1) volatility features, benchmarked against Black–Scholes pricing.",
+      "Learned the Black–Scholes pricing surface at R² 0.99998 and shipped a live Streamlit dashboard with heatmaps and sensitivity analysis comparing ML and analytical pricing side by side across all 8 model variants.",
     ],
   },
 

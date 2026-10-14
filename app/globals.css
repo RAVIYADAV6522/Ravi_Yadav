@@ -910,6 +910,13 @@ body {
 .pv-crown-hi { fill: var(--pv-leaf-hi); opacity: 0.35; }
 .pv-bbox { fill: none; stroke: var(--pv-teal); stroke-width: 1.6; stroke-dasharray: 3 2; opacity: 0; animation: pv-bbox 4s ease-out infinite; }
 @keyframes pv-bbox { 0% { opacity: 0; } 6% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; } }
+.pv-smear { fill: rgba(244, 114, 182, 0.08); stroke: var(--pv-line); }
+.pv-cell { fill: #fda4af; opacity: 0.55; }
+.pv-cell-core { fill: #fecdd3; opacity: 0.6; }
+.dark .pv-cell { fill: #fb7185; opacity: 0.4; }
+.dark .pv-cell-core { fill: #fda4af; opacity: 0.35; }
+.pv-parasite { fill: #7c3aed; }
+.pv-bbox-alert { stroke: var(--pv-coral); }
 .pv-scan { fill: var(--pv-teal); opacity: 0.5; animation: pv-scan 4s linear infinite; }
 @keyframes pv-scan { 0% { transform: translateX(0); opacity: 0.6; } 60% { transform: translateX(286px); opacity: 0.6; } 61%, 100% { transform: translateX(286px); opacity: 0; } }
 @keyframes pv-food { 50% { transform: scale(0.7); opacity: 0.6; } }
