@@ -28,7 +28,7 @@ export function Contact({ contact, siteConfig }: { contact: ContactContent; site
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <SectionLabel index={11} label="Contact" />
+          <SectionLabel index={10} label="Contact" />
           <h2 className="font-heading text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
             <RevealText text={contact.heading} />
           </h2>

@@ -14,14 +14,12 @@ import { HonorsAwards } from "@/components/HonorsAwards";
 import { Navbar } from "@/components/Navbar";
 import { Projects } from "@/components/Projects";
 import { ResearchPublications } from "@/components/ResearchPublications";
-import { Certifications } from "@/components/Certifications";
 import { Skills } from "@/components/Skills";
 import { TechMarquee } from "@/components/TechMarquee";
 import { WorkExperience } from "@/components/WorkExperience";
 import {
   about,
   achievementsAndActivities,
-  certifications,
   contact,
   educationEntries,
   hero,
@@ -48,7 +46,6 @@ export default function Home() {
         <Education educationEntries={educationEntries} />
         <HonorsAwards honorsAwards={honorsAwards} />
         <Skills skillsByCategory={skillsByCategory} />
-        <Certifications certifications={certifications} />
         <Activity siteConfig={siteConfig} />
         <AchievementsActivities
           achievementsAndActivities={achievementsAndActivities}

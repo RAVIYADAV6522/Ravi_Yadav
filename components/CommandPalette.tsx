@@ -37,7 +37,6 @@ const SECTIONS: [string, string][] = [
   ["education", "Education"],
   ["honors", "Honors & Awards"],
   ["skills", "Skills"],
-  ["certifications", "Certifications"],
   ["activity", "Coding activity"],
   ["achievements", "Achievements"],
   ["contact", "Contact"],

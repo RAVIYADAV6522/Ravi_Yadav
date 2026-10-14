@@ -20,7 +20,7 @@ export function AchievementsActivities({
       className="px-4 py-16 sm:px-6 sm:py-20 md:px-8 lg:py-24"
     >
       <div className="mx-auto max-w-content">
-        <SectionLabel index={10} label="Beyond code" />
+        <SectionLabel index={9} label="Beyond code" />
         <CricketFox />
         <h2 className="font-heading text-3xl font-bold text-slate-900 dark:text-white md:text-4xl">
           <RevealText text="Achievements & Activities" />

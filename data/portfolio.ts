@@ -120,14 +120,14 @@ export const honorsAwards: Award[] = [
     org: "Issued by IIT Delhi",
     year: "Jun 2023",
     description:
-      "Secured All India Rank (AIR) 6522 in JEE (Advanced) 2023 among more than 185,000 candidates. Score: 142/360. OBC-NCL category rank: 1390.",
+      "Secured All India Rank (AIR) 6522 in JEE (Advanced) 2023 among 180,000+ candidates.",
   },
   {
-    title: "JEE Mains '23 — AIR 24875",
+    title: "JEE Main '23 — 97.84 Percentile",
     org: "Issued by NTA (National Testing Agency)",
     year: "Apr 2023",
     description:
-      "Secured All India Rank (AIR) 24875 in JEE Main 2023 with a 97.84 percentile. OBC-NCL category rank: 6397.",
+      "Scored in the 97.84 percentile in JEE Main 2023 among 1.1M+ candidates.",
   },
 ];
 
@@ -216,35 +216,6 @@ export const skillsByCategory: SkillCategory[] = [
       "Teamwork",
       "Communication skills",
     ],
-  },
-];
-
-export type Certification = {
-  title: string;
-  provider: string;
-  date: string;
-  description: string;
-  credentialUrl?: string;
-};
-
-export const certifications: Certification[] = [
-  {
-    title: "Ethical Hacking",
-    provider: "Coursera",
-    date: "May 2025",
-    description:
-      "Completed hands-on training in ethical hacking, focusing on identifying vulnerabilities, penetration testing, and securing systems against cyber threats.",
-    credentialUrl:
-      "https://www.coursera.org/account/accomplishments/badge/lf4d1CXRRT6-HdQl0aU-jg",
-  },
-  {
-    title: "DSA Course",
-    provider: "Apna College",
-    date: "October 2023",
-    description:
-      "Completed a hands-on DSA course, enhancing problem-solving skills, code optimization, and foundational knowledge in algorithms.",
-    credentialUrl:
-      "https://drive.google.com/file/d/1yg821bmcrDgt8Xcaw3fYmGu4Qfq_RraK/view",
   },
 ];
 
